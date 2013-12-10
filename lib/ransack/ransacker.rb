@@ -17,7 +17,7 @@ module Ransack
     end
 
     def attr_from(bindable)
-      call(*args.map { |arg| bindable.send(arg) })
+      call(*args.map { |arg| bindable.respond_to?(arg) ? bindable.send(arg) : arg })
     end
 
   end
