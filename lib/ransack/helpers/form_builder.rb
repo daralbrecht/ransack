@@ -33,6 +33,7 @@ module Ransack
           template_grouped_collection_select(collection, options, html_options)
         else
           collection = collection_for_base(action, bases.first)
+          collection.map!{|c| [c[0], c[1].upcase]}
           template_collection_select(:name, collection, options, html_options)
         end
       end
